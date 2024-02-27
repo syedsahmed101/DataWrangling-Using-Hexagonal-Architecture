@@ -1,0 +1,12 @@
+{
+    "input_columns": ["Order Number", "Year", "Month", "Day", "Product Number", "Product Name", "Count"],
+    "output_columns": ["OrderID", "OrderDate", "ProductId", "ProductName", "Quantity", "Unit"],
+    "transformations": [
+        {"rename": {"from": "Order Number", "to": "OrderID", "type": "Integer"}},
+        {"concatenate": {"to": "OrderDate", "columns": ["Year", "Month", "Day"], "type": "DateTime"}},
+        {"rename": {"from": "Product Number", "to": "ProductId", "type": "String"}},
+        {"rename": {"from": "Product Name", "to": "ProductName", "type": "String"}},
+        {"rename": {"from": "Count", "to": "Quantity", "type": "BigDecimal"}},
+        {"add_column": {"name": "Unit", "value": "kg", "type": "String"}}
+    ]
+}
